@@ -1,16 +1,10 @@
 import store from "./store";
+import { fetchRecipes } from "./actions/recipes";
+
 import loadUI from "./ui";
-import { addRecipe } from "./actions/recipes";
-import { addIngredient } from "./actions/ingredients";
-
-document.getElementById("app").innerHTML = `
-
-
-`;
 
 loadUI();
 
-store.dispatch(addRecipe("Pancakes"));
-store.dispatch(addIngredient("Pancakes", "Egg", 3));
+store.dispatch(fetchRecipes());
 
 console.log(store.getState());

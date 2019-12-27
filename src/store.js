@@ -1,12 +1,18 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers/root";
+import logMiddleware from "./middleware/logs";
+import apiMiddleware from "./middleware/api";
 
 const initialState = {
   recipes: [{ name: "Omelette" }],
   ingredients: [{ recipe: "Omelette", name: "Egg", quantity: 2 }]
 };
 
-const store = createStore(rootReducer, initialState);
+const store = createStore(
+  rootReducer,
+  initialState,
+  applyMiddleware(logMiddleware, apiMiddleware)
+);
 
 window.store = store;
 
