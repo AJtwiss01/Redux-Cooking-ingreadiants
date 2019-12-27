@@ -2,7 +2,7 @@ import axios from "axios";
 import { FETCH_RECIPES } from "../constants/actionTypes";
 import { setRecipes } from "../actions/recipes";
 
-const URL = "https://s3.amazonaws.com/500tech-shared/db.json";
+const URL = "../data/db.json";
 
 function fetchData(url, callback) {
   axios

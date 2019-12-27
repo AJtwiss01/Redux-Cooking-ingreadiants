@@ -3,14 +3,8 @@ import rootReducer from "./reducers/root";
 import logMiddleware from "./middleware/logs";
 import apiMiddleware from "./middleware/api";
 
-const initialState = {
-  recipes: [{ name: "Omelette" }],
-  ingredients: [{ recipe: "Omelette", name: "Egg", quantity: 2 }]
-};
-
 const store = createStore(
   rootReducer,
-  initialState,
   applyMiddleware(logMiddleware, apiMiddleware)
 );
 
